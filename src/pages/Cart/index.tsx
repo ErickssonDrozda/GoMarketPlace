@@ -57,7 +57,12 @@ const Cart: React.FC = () => {
   }, [products]);
 
   const totalItensInCart = useMemo(() => {
-    return products.length;
+    let getCountItems = 0;
+
+    products.forEach(product => {
+      getCountItems += product.quantity;
+    });
+    return getCountItems;
   }, [products]);
 
   return (
